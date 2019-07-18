@@ -1,6 +1,6 @@
 ﻿var organizationSettings = {
     //The url that points to team city
-    teamCityUrl: 'https://todo.edit.this.url.invalid',
+    teamCityUrl: 'http://teamcity',
 
     //Only show builds for branches that satisfy the predicate
     branchFilter: function(branch) {
@@ -12,7 +12,15 @@
                     "master",
                     "refs/heads/master" /* Long Git 'refs/...' names are used when 'Branch specification' doesn't have a '*' and paretheses are also not being used to mark the 'Logical branch name' - see https://confluence.jetbrains.com/display/TCD9/Working+with+Feature+Branches#WorkingwithFeatureBranches-Logicalbranchname */,
                     "develop",
-                    "refs/heads/develop"
+                    "refs/heads/develop",
+                    "release",
+                    "refs/heads/release",
+                    "ReleaseA",
+                    "refs/heads/ReleaseA",
+                    "QA",
+                    "refs/heads/QA",
+                    "epic-enterprise-1-0",
+                    "refs/heads/epic-enterprise-1-0"
                 ].indexOf(branch.name) > -1
             )
         );
@@ -30,14 +38,14 @@ var DefaultSettings = {
 
     // If your TeamCity is set up for guest access, you can just use it. Otherwise, the moment that tc-radiate sends first request to TC, TC will
     // ask the user for basic http credentials. Your browser may even offer you to save them.
-    useTeamCityGuest: false,
+    useTeamCityGuest: true,
 
     //How often to refresh the whole page in order to update the application (to get all the latest changes without having to come to the monitor and refresh).
     // Set to [0/undefined/null] to disable just this. Use enableAutoUpdate to disable this and any data updates.
     appUpdateIntervalMs: 1 /*hr*/ * 60 * 60 * 1000,
 
     //How often to call the TeamCity webservices and update the data on the screen
-    dataUpdateIntervalMs: 30/*sec*/ * 1000,
+    dataUpdateIntervalMs: 10/*sec*/ * 1000,
 
     //How often to refresh the build image;
     buildImageIntervalMs: 15/*min*/ * 60 * 60 * 1000,
@@ -71,7 +79,7 @@ var authType = Settings.useTeamCityGuest ? 'guestAuth' : 'httpAuth';
 //----------------------
 
 Settings.teamCityBaseUrl = Settings.proxy + Settings.teamCityUrl;
-Settings.restApiBaseUrl = Settings.teamCityBaseUrl + '/' + authType + '/app/rest/2017.2';
+Settings.restApiBaseUrl = Settings.teamCityBaseUrl + '/' + authType + '/app/rest';
 
 //The url for the list of build types (used for mapping the build id (e.g. bt11) to the name (e.g. Website Tests)
 Settings.buildTypesUrl = Settings.restApiBaseUrl + '/buildTypes';

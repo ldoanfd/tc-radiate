@@ -58,15 +58,15 @@ a:hover {
     }
 
 .success {
-    background-color: #5cb85c!important;
+    background-color: #00C3C7!important;
 }
 
 .failure, .failure.running {
-    background-color: #d9534f!important;
+    background-color: #F4863F!important;
 }
 
 .failure.investigated, .failure.running.investigated {
-    background-color: #d9674f!important;
+    background-color: #F4863F!important;
 }
 .failure.investigated > :first-child:before {
     content: '🔍 ';
@@ -229,4 +229,9 @@ ul.inlineSentenceList > li:last-child:after {
     background-color: #FFFFFF;
     background-image: none;
     height: 100%;
+}
+
+.d-logo {
+   width: 550px;
+   padding: 15px 0;	
 }
