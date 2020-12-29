@@ -1,6 +1,6 @@
 ﻿var organizationSettings = {
     //The url that points to team city
-    teamCityUrl: 'http://teamcity',
+    teamCityUrl: 'http://teamcity2',
 
     //Only show builds for branches that satisfy the predicate
     branchFilter: function(branch) {
@@ -11,6 +11,8 @@
                     "<default>"/*This branch name is used for the default builds, when there are multiple VCS roots with different branches (e.g. source and config files are in different repos) */,
                     "master",
                     "refs/heads/master" /* Long Git 'refs/...' names are used when 'Branch specification' doesn't have a '*' and paretheses are also not being used to mark the 'Logical branch name' - see https://confluence.jetbrains.com/display/TCD9/Working+with+Feature+Branches#WorkingwithFeatureBranches-Logicalbranchname */,
+                    "main",
+                    "refs/heads/main"
                     "develop",
                     "refs/heads/develop",
                     "release",
